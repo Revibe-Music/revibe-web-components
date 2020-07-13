@@ -1,0 +1,50 @@
+{
+  "name": "revibe-component-library",
+  "version": "0.0.1",
+  "description": "A component library built for sharing components to all the Revibe websites (main site, Aritst Portal, etc.).",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "docs": "styleguidist server"
+  },
+  "keywords": [
+    "revibe",
+    "components",
+    "react"
+  ],
+  "author": "Revibe Developer Team",
+  "license": "MIT",
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "@emotion/styled": "10.x",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@testing-library/react": "^10.4.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "css-loader": "^3.6.0",
+    "jest": "^26.1.0",
+    "jest-emotion": "^10.0.32",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-styleguidist": "^11.0.8",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "reactstrap": "^8.5.1"
+  }
+}
