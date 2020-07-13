@@ -20,7 +20,7 @@ class Button extends React.Component {
     /**
      * The button's children elements. Usually text!
      */
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     /**
      * Color of the button. [primary, secondary, info, success, danger, warning]
      */
@@ -40,28 +40,57 @@ class Button extends React.Component {
     /**
      * The function to fire on button click.
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /**
+     * Changes the button to an outline style.
+     */
+    outline: PropTypes.bool,
+    /**
+     * Changes the button to a rounded style.
+     */
+    round: PropTypes.bool,
+    /**
+     * Makes the button into a link button.
+     */
+    link: PropTypes.bool,
+    /**
+     * Sets the target link for a button.
+     */
+    href: PropTypes.string,
+    /**
+     * Sets the icon of a button. Can be used in junction with children.
+     */
+    icon: PropTypes.node,
+    /**
+     * Sets the href target of a button.
+     */
+    target: PropTypes.string
   }
 
   static defaultProps = {
-    children: "Default Text!",
+    children: "Default text!",
     color: "primary",
     active: false,
     disabled: false
   }
 
   render() {
-    const { children, color, size, active, disabled, onClick } = this.props
+    const { icon, outline, round, children, color, size, active, disabled, onClick, link, href, target } = this.props
 
     return (
       <ReactstrapButton
-        color={color}
+        color={link ? "link" : color}
         size={size}
         active={active}
         disabled={disabled}
         onClick={onClick}
+        outline={outline}
+        className={`${round && "btn-round"}`}
+        link={link}
+        href={href}
+        target={target}
       >
-        {children}
+        {icon && icon}{icon && children && " "}{(!icon || (icon && children != Button.defaultProps.children)) && children}
       </ReactstrapButton>
     )
   }
