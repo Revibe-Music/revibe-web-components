@@ -41,3 +41,23 @@ import { Button } from 'revibe-component-library'
 ```js
 <Button onClick={() => alert('Button pressed!')}>Click for Alert!</Button>
 ```
+
+### Button Styles
+*Bootstrap does not have rounded buttons, but once our Bootstrap implementation is in, it'll use it*
+```js padded
+<Button>Normal</Button>
+<Button outline>Outline</Button>
+<Button round>Round</Button>
+```
+
+### Button Icons
+*Using FontAwesome as an example*
+```js padded
+<Button outline icon={<i className="fab fa-accessible-icon" />}></Button>
+```
+
+### Button Links
+```js padded
+<Button link href="/#button" >Button Link</Button>
+<Button link href="https://revibe.tech" target="_blank">External Link</Button>
+```
