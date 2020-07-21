@@ -1,5 +1,5 @@
 {
-  "name": "revibe-component-library",
+  "name": "@revibe-dev/revibe-component-library",
   "version": "0.0.1",
   "description": "A component library built for sharing components to all the Revibe websites (main site, Aritst Portal, etc.).",
   "main": "./src/components/input.js",
@@ -28,6 +28,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-free": "^5.13.1",
+    "@revibe-dev/revibe-blk-system-styles": "^1.0.1",
     "@testing-library/react": "^10.4.5",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",

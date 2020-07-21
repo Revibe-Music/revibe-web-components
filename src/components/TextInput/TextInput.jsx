@@ -6,12 +6,12 @@ import { InputGroup, Input as ReactstrapInput, InputGroupAddon, InputGroupText }
 // Add your info to the docs if you edit this!
 
 /**
- * ### Baseline input field.
+ * ### Baseline text input field.
  * 
  * @version 0.0.1
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
-class Input extends React.Component {
+class TextInput extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -76,6 +76,6 @@ class Input extends React.Component {
   }
 }
 
-export { Input }
+export { TextInput }
 
-export default Input
+export default TextInput

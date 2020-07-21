@@ -26,5 +26,6 @@ module.exports = {
   },
   require: [
       "./config/masterStyles.scss"
-  ]
+  ],
+  title: "Revibe Component Library"
 };

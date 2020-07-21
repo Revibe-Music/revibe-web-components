@@ -42,9 +42,9 @@ class Button extends React.Component {
      */
     onClick: PropTypes.func,
     /**
-     * Changes the button to an outline style.
+     * Changes the button to a simple style.
      */
-    outline: PropTypes.bool,
+    simple: PropTypes.simple,
     /**
      * Changes the button to a rounded style.
      */
@@ -68,14 +68,13 @@ class Button extends React.Component {
   }
 
   static defaultProps = {
-    children: "Default text!",
     color: "primary",
     active: false,
     disabled: false
   }
 
   render() {
-    const { icon, outline, round, children, color, size, active, disabled, onClick, link, href, target } = this.props
+    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target } = this.props
 
     return (
       <ReactstrapButton
@@ -84,13 +83,12 @@ class Button extends React.Component {
         active={active}
         disabled={disabled}
         onClick={onClick}
-        outline={outline}
-        className={`${round && "btn-round"}`}
+        className={`${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${icon && !children ? "btn-icon" : ""}`}
         link={link}
         href={href}
         target={target}
       >
-        {icon && icon}{icon && children && " "}{(!icon || (icon && children != Button.defaultProps.children)) && children}
+        {icon && icon}{icon && children && ""}{icon && children}{!icon && (children || (!children && "Default text!"))}
       </ReactstrapButton>
     )
   }

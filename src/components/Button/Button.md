@@ -46,14 +46,16 @@ import { Button } from 'revibe-component-library'
 *Bootstrap does not have rounded buttons, but once our Bootstrap implementation is in, it'll use it*
 ```js padded
 <Button>Normal</Button>
-<Button outline>Outline</Button>
+<Button simple>Simple</Button>
 <Button round>Round</Button>
 ```
 
 ### Button Icons
 *Using FontAwesome as an example*
 ```js padded
-<Button outline icon={<i className="fab fa-accessible-icon" />}></Button>
+<Button icon={<i className="fas fa-paper-plane" />} />
+<Button simple icon={<i className="fab fa-accessible-icon" />} />
+<Button simple round icon={<i className="far fa-stop-circle" />} />
 ```
 
 ### Button Links
