@@ -53,3 +53,9 @@ import Button from "../Button";
 
 <TextInput prepend={<i className="far fa-envelope" />} placeholder="Email" append={<Button>Submit</Button>} />
 ```
+
+### Form Inputs
+```js
+<TextInput form />
+<TextInput form formLabel="Email Address" />
+```

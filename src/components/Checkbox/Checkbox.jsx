@@ -21,7 +21,19 @@ class Checkbox extends React.Component {
     /**
      * The label text.
      */
-    label: PropTypes.string
+    label: PropTypes.string,
+    /**
+     * Function to handle change.
+     */
+    onChange: PropTypes.func,
+    /**
+     * Sets whether the checkbox is enabled or disabled.
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Sets whether the checkbox is inline or not.
+     */
+    inline: PropTypes.bool
   }
 
   static defaultProps = {
@@ -29,16 +41,21 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { label } = this.props
+    const { label, onChange, disabled, inline } = this.props
 
     return (
-      <FormGroup check className="text-left">
+      <FormGroup check inline={inline} disabled={disabled}>
         <Label check>
           <Input 
             type="checkbox"
+            onChange={onChange}
+            disabled={disabled}
           />
-          <span className="form-check-sign" />
+          {' '}
           {label}
+          <span className="form-check-sign">
+            <span className="check"></span>
+          </span>
         </Label>
       </FormGroup>
     )

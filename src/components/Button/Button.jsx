@@ -64,31 +64,63 @@ class Button extends React.Component {
     /**
      * Sets the href target of a button.
      */
-    target: PropTypes.string
+    target: PropTypes.string,
+    /**
+     * Sets the social media of choice for the button. Overrides color.
+     * 
+     * List: [ twitter, facebook, google, linkedin, pinterest, youtube, tumblr, github, behance, dribble, reddit ]
+     */
+    social: PropTypes.string
   }
 
   static defaultProps = {
-    color: "primary",
     active: false,
     disabled: false
   }
 
+  getIconClassBySocial = social => {
+    switch(social) {
+      case "twitter":
+        return "fab fa-twitter";
+      case "facebook":
+        return "fab fa-facebook";
+      case "google":
+        return "fab fa-linkedin";
+      case "linkedin":
+        return "fab fa-linkedin";
+      case "pinterest":
+        return "fab fa-pinterest";
+      case "youtube":
+        return "fab fa-youtube";
+      case "tumblr":
+        return "fab fa-tumblr";
+      case "github":
+        return "fab fa-github";
+      case "behance":
+        return "fab fa-behance";
+      case "dribble":
+        return "fab fa-dribble";
+      case "reddit":
+        return "fab fa-reddit";
+    }
+  }
+
   render() {
-    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target } = this.props
+    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target, social } = this.props
 
     return (
       <ReactstrapButton
-        color={link ? "link" : color}
+        color={link ? "link" : social ? social : !color ? "primary" : color}
         size={size}
         active={active}
         disabled={disabled}
         onClick={onClick}
-        className={`${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${icon && !children ? "btn-icon" : ""}`}
+        className={`${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
         link={link}
         href={href}
         target={target}
       >
-        {icon && icon}{icon && children && ""}{icon && children}{!icon && (children || (!children && "Default text!"))}
+        {social && <i className={this.getIconClassBySocial(social)} />}{icon && !social && icon}{(icon || social) && children && " "}{icon && children}{!icon && !social && (children || (!children && "Default text!"))}
       </ReactstrapButton>
     )
   }

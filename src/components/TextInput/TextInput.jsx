@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { InputGroup, Input as ReactstrapInput, InputGroupAddon, InputGroupText } from 'reactstrap'
+import { InputGroup, Input as ReactstrapInput, InputGroupAddon, InputGroupText, FormGroup, Label } from 'reactstrap'
 
 // Add your info to the docs if you edit this!
 
@@ -36,7 +36,15 @@ class TextInput extends React.Component {
     /**
      * A function to handle when text is changed.
      */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    /**
+     * The label to be used above the form input.
+     */
+    formLabel: PropTypes.string,
+    /**
+     * Whether to use a form or regular input. Will override: size, append, and prepend.
+     */
+    form: PropTypes.bool
   }
 
   static defaultProps = {
@@ -44,34 +52,46 @@ class TextInput extends React.Component {
   }
 
   render() {
-    const { onChange, placeholder, prepend, append, size } = this.props
+    const { onChange, placeholder, prepend, append, size, form, formLabel } = this.props
 
     return (
-      <InputGroup size={size}>
-        {prepend && 
-          <InputGroupAddon addonType="prepend">
-            {prepend && (!prepend.type || prepend.type === "i") ?
-              <InputGroupText>{prepend}</InputGroupText>
-              :
-              prepend
+      <>
+        {!form ? 
+          <InputGroup size={size}>
+            {prepend && 
+              <InputGroupAddon addonType="prepend">
+                {prepend && (!prepend.type || prepend.type === "i") ?
+                  <InputGroupText>{prepend}</InputGroupText>
+                  :
+                  prepend
+                }
+              </InputGroupAddon>
             }
-          </InputGroupAddon>
-        }
-        <ReactstrapInput 
-          placeholder={placeholder}
-          onChange={onChange}
-          {...this.props}
-        />
-        {append &&
-          <InputGroupAddon addonType="append">
-            {append && (!append.type || append.type === "i") ?
-              <InputGroupText>{append}</InputGroupText>
-              :
-              append
+            <ReactstrapInput 
+              placeholder={placeholder}
+              onChange={onChange}
+              {...this.props}
+            />
+            {append &&
+              <InputGroupAddon addonType="append">
+                {append && (!append.type || append.type === "i") ?
+                  <InputGroupText>{append}</InputGroupText>
+                  :
+                  append
+                }
+              </InputGroupAddon>
             }
-          </InputGroupAddon>
+          </InputGroup>
+        :
+          <FormGroup className={`${formLabel ? 'has-label' : ''}`}>
+            {formLabel && <Label>{formLabel}</Label>}
+            <ReactstrapInput
+              placeholder={placeholder}
+              onChange={onChange}
+            />
+          </FormGroup>
         }
-      </InputGroup>
+      </>
     )
   }
 }

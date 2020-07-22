@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   webpackConfig: {
     module: {
@@ -27,5 +29,8 @@ module.exports = {
   require: [
       "./config/masterStyles.scss"
   ],
-  title: "Revibe Component Library"
+  title: "Revibe Component Library",
+  styleguideComponents: {
+		StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide')
+	}
 };
