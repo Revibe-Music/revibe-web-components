@@ -6,7 +6,7 @@ import ToggleSwitch from 'react-bootstrap-switch'
 // Add your info to the docs if you edit this!
 
 /**
- * ### Baseline radio!
+ * ### Baseline switch!
  * 
  * @version 0.0.1
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))

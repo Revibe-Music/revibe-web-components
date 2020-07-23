@@ -2,7 +2,7 @@
 
 Importing the radio.
 ```js static
-import Radio from 'revibe-component-library/Checkbox'
+import Radio from 'revibe-component-library/Radio'
 
 import { Radio } from 'revibe-component-library'
 ```

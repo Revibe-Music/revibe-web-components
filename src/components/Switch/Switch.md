@@ -2,7 +2,7 @@
 
 Importing the switch.
 ```js static
-import Switch from 'revibe-component-library/Checkbox'
+import Switch from 'revibe-component-library/Switch'
 
 import { Switch } from 'revibe-component-library'
 ```
