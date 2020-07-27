@@ -110,13 +110,12 @@ class Button extends React.Component {
 
     return (
       <ReactstrapButton
-        color={link ? "link" : social ? social : !color ? "primary" : color}
+        color={social ? social : !color ? "primary" : color}
         size={size}
         active={active}
         disabled={disabled}
         onClick={onClick}
-        className={`${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
-        link={link}
+        className={`${link ? "btn-link" : ""} ${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
         href={href}
         target={target}
       >

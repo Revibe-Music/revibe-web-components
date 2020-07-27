@@ -60,8 +60,9 @@ import { Button } from 'revibe-component-library'
 
 ### Button Links
 ```js padded
-<Button link href="/#button" >Button Link</Button>
+<Button link href="#button" >Button Link</Button>
 <Button link href="https://revibe.tech" target="_blank">External Link</Button>
+<Button link href="#button" color="success" >Success Link</Button>
 ```
 
 ### Social Media Buttons
