@@ -30,6 +30,12 @@ import ReactSelect from 'react-select'
 class Select extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      selected: null,
+    }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   static propTypes = {
@@ -40,22 +46,62 @@ class Select extends React.Component {
     /**
      * The color of the select dropdown.
      */
-    color: PropTypes.string
+    color: PropTypes.string,
+    /**
+     * Sets if it multiple options are selectable
+     */
+    isMulti: PropTypes.bool,
+    /**
+     * Options to choose from for the select.
+     */
+    options: PropTypes.array.isRequired,
+    /**
+     * The function that processes changes to the selector.
+     */
+    onChange: function(props, propName, componentName) {
+      var fn = props[propName];
+      if(!fn.prototype ||
+         (typeof fn.prototype.constructor !== 'function' &&
+          fn.prototype.constructor.length !== 1)) {
+          return new Error(propName + 'must be a function with an argument!');
+      }
+    }
   }
 
   static defaultProps = {
     placeholder: "Pick an Option!",
-    color: "primary"
+    color: "primary",
+    options: [ "Option A", "Option B" ]
+  }
+
+  componentWillMount() {
+    const { options } = this.props
+
+    this.optionList = []
+
+    options.map((label, i) => this.optionList.push({ value: i, label: label }))
+  }
+
+  handleChange(value) {
+    const { onChange } = this.props
+
+    this.setState({ selected: value })
+    
+    if(onChange) onChange(value)
   }
 
   render() {
-    const { placeholder, color } = this.props
+    const { placeholder, color, isMulti } = this.props
 
     return (
       <ReactSelect
         className={`react-select react-select-${color}`}
         classNamePrefix="react-select"
         placeholder={placeholder}
+        value={this.state.selected}
+        isMulti={isMulti}
+        onChange={this.handleChange}
+        options={this.optionList}
       />
     )
   }

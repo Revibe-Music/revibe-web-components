@@ -30,6 +30,8 @@ import ToggleSwitch from 'react-bootstrap-switch'
 class Switch extends React.Component {
   constructor(props) {
     super(props)
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   static propTypes = {
@@ -52,7 +54,18 @@ class Switch extends React.Component {
     /**
      * The text when the switch is off.
      */
-    offText: PropTypes.node
+    offText: PropTypes.node,
+    /**
+     * Handles when the state of the switch changes.
+     */
+    onChange: function(props, propName, componentName) {
+      var fn = props[propName];
+      if(!fn.prototype ||
+         (typeof fn.prototype.constructor !== 'function' &&
+          fn.prototype.constructor.length !== 1)) {
+          return new Error(propName + 'must be a function with an argument!');
+      }
+    }
   }
 
   static defaultProps = {
@@ -61,6 +74,12 @@ class Switch extends React.Component {
     defaultValue: false,
     onText: "",
     offText: ""
+  }
+
+  handleChange(elem, state) {
+    const { onChange } = this.props
+
+    if(onChange) onChange(state)
   }
 
   render() {
@@ -73,6 +92,7 @@ class Switch extends React.Component {
         offColor={offColor}
         onText={onText}
         offText={offText}
+        onChange={this.handleChange}
       />
     )
   }

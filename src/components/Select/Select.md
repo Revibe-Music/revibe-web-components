@@ -13,3 +13,8 @@ import { Select } from 'revibe-component-library'
 <br/>
 <Select placeholder="This is a placeholder!" />
 ```
+
+### Select Multiple Examples
+```js padded
+<Select placeholder="Select multiple objects!" isMulti />
+```
