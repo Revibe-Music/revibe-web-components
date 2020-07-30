@@ -60,15 +60,19 @@ class TextInput extends React.Component {
     /**
      * Whether to use a form or regular input. Will override: size, append, and prepend.
      */
-    form: PropTypes.bool
+    form: PropTypes.bool,
+    /**
+     * Sets the classes used for the form group. Useful for applying if a field is good (has-success) or bad (has-danger).
+     */
+    formClassName: PropTypes.string
   }
 
   static defaultProps = {
-
+    formClassName: ""
   }
 
   render() {
-    const { onChange, placeholder, prepend, append, size, form, formLabel } = this.props
+    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName } = this.props
 
     return (
       <>
@@ -99,7 +103,7 @@ class TextInput extends React.Component {
             }
           </InputGroup>
         :
-          <FormGroup className={`${formLabel ? 'has-label' : ''}`}>
+          <FormGroup className={`${formLabel ? 'has-label' : ''} ${formClassName}`}>
             {formLabel && <Label>{formLabel}</Label>}
             <ReactstrapInput
               placeholder={placeholder}

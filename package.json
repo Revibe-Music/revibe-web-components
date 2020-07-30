@@ -2,7 +2,7 @@
   "name": "@revibe-dev/revibe-component-library",
   "version": "0.0.1",
   "description": "A component library built for sharing components to all the Revibe websites (main site, Aritst Portal, etc.).",
-  "main": "./src/components/input.js",
+  "main": "./src/components/index.js",
   "scripts": {
     "test": "jest",
     "docs": "styleguidist server"

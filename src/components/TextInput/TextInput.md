@@ -57,5 +57,11 @@ import Button from "../Button";
 ### Form Inputs
 ```js
 <TextInput form />
-<TextInput form formLabel="Email Address" />
+<TextInput form formLabel="Email Address" placeholder="Enter Email Here..." />
+```
+
+### Form Status
+```js
+<TextInput form formClassName="has-success" formLabel="Success" />
+<TextInput form formClassName="has-danger" formLabel="Danger" />
 ```
