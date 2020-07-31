@@ -5,7 +5,8 @@
   "main": "./src/components/index.js",
   "scripts": {
     "test": "jest",
-    "docs": "styleguidist server"
+    "docs": "styleguidist server",
+    "build": "styleguidist build"
   },
   "keywords": [
     "revibe",

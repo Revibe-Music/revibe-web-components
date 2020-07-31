@@ -32,5 +32,6 @@ module.exports = {
   title: "Revibe Component Library",
   styleguideComponents: {
 		StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide')
-	}
+  },
+  styleguideDir: "./build"
 };
