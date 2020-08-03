@@ -24,7 +24,7 @@ import { InputGroup, Input as ReactstrapInput, InputGroupAddon, InputGroupText, 
 /**
  * ### Baseline text input field.
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class TextInput extends React.Component {

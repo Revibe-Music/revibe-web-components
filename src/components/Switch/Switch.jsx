@@ -24,7 +24,7 @@ import ToggleSwitch from 'react-bootstrap-switch'
 /**
  * ### Baseline switch!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Switch extends React.Component {

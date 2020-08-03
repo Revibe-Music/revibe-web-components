@@ -24,7 +24,7 @@ import NoUISlider from 'nouislider'
 /**
  * ### Baseline slider!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Slider extends React.Component {

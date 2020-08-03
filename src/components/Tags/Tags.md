@@ -15,3 +15,10 @@ import { Tags } from 'revibe-component-library'
 <br />
 <Tags color="primary" tags={[ "tagA", "tagB" ]} />
 ```
+
+### Tags Uppercase
+```js padded
+<Tags color="primary" tags={[ "tagA", "tagB" ]} />
+<br />
+<Tags uppercase color="primary" tags={[ "tagA", "tagB" ]} />
+```

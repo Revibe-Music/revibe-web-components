@@ -27,3 +27,14 @@ import { Progress } from 'revibe-component-library'
 ```js
 <Progress value={25} max={75} color="primary" label="25/75" />
 ```
+
+### Multi-Progress Bar
+```js
+<Progress multi max={100} values={[{ value: 10, color: "primary" }, { value: 35 }, { value: 15, color: "info", striped: true }]} />
+```
+
+### Striped Progress Bars
+```js
+<Progress value={30} color="primary" label="Primary" striped />
+<Progress multi max={100} values={[{ value: 10, color: "primary", striped: true }, { value: 15, color: "info", striped: true }]} />
+```

@@ -24,7 +24,7 @@ import { Progress as ProgressBar } from 'reactstrap'
 /**
  * ### Baseline progress bar!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Progress extends React.Component {
@@ -36,19 +36,31 @@ class Progress extends React.Component {
     /**
      * The value of the progress bar.
      */
-    value: PropTypes.number.isRequired,
+    value: PropTypes.number,
     /**
      * The maximum value of the progress bar.
      */
     max: PropTypes.number,
     /**
-     * The label for the progress bar.
+     * The label for the progress bar. No label for the multi-progress bar.
      */
     label: PropTypes.string,
     /**
      * The color of the progress bar.
      */
-    color: PropTypes.string
+    color: PropTypes.string,
+    /**
+     * Has multiple bars.
+     */
+    multi: PropTypes.bool,
+    /**
+     * The list of values for a multi-progress bar.
+     */
+    values: PropTypes.array,
+    /**
+     * Sets a progress bar as striped.
+     */
+    striped: PropTypes.bool
   }
 
   static defaultProps = {
@@ -57,15 +69,27 @@ class Progress extends React.Component {
   }
 
   render() {
-    const { value, max, label, color } = this.props
+    const { value, max, label, color, multi, values, striped } = this.props
+
+    console.log(values)
 
     return (
-      <div className={`progress-container ${color ? `progress-${color}` : ""}`}>
-        <span className="progress-badge">{label}</span>
-        <ProgressBar max={max} value={value}>
-          <span className="progress-value">{((value / max) * 100).toFixed(0)}%</span>
+      <>
+      {!multi ?
+        <div className={`progress-container ${color ? `progress-${color}` : ""}`}>
+          <span className="progress-badge">{label}</span>
+          <ProgressBar max={max} value={value} striped={striped}>
+            <span className="progress-value">{((value / max) * 100).toFixed(0)}%</span>
+          </ProgressBar>
+        </div>
+        :
+        <ProgressBar multi={multi}>
+          {values.map((obj, index) => (
+            <ProgressBar bar value={`${obj.value}`} color={obj.color ? obj.color : "secondary"} striped={striped} max={max} />
+          ))}
         </ProgressBar>
-      </div>
+      }
+      </>
     )
   }
 }

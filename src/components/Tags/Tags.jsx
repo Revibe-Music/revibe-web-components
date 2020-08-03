@@ -24,7 +24,7 @@ import TagsInput from 'react-tagsinput'
 /**
  * ### Baseline tag list!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Tags extends React.Component {
@@ -59,7 +59,11 @@ class Tags extends React.Component {
           fn.prototype.constructor.length !== 1)) {
           return new Error(propName + 'must be a function with an argument!');
       }
-  }
+    },
+    /**
+     * Sets the tags to use uppercase.
+     */
+    uppercase: PropTypes.bool
   }
   
   static defaultProps = {
@@ -76,13 +80,14 @@ class Tags extends React.Component {
   }
 
   render() {
-    const { color } = this.props
+    const { color, uppercase } = this.props
 
     return (
       <TagsInput
         value={this.state.tags}
         onChange={this.handleTags}
-        tagProps={{ className: `react-tagsinput-tag ${color}` }}
+        tagProps={{ className: `react-tagsinput-tag ${color}`, style: (!uppercase ? { textTransform: "none" } : {}) }}
+        {...this.props}
       />
     )
   }

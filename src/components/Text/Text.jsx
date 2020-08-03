@@ -22,7 +22,7 @@ import PropTypes from 'prop-types'
 /**
  * ### Baseline text component!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Text extends React.Component {

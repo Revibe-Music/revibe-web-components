@@ -8,7 +8,7 @@ import { Button as ReactstrapButton } from 'reactstrap'
 /**
  * ### Baseline button!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Button extends React.Component {
@@ -118,6 +118,7 @@ class Button extends React.Component {
         className={`${link ? "btn-link" : ""} ${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
         href={href}
         target={target}
+        {...this.props}
       >
         {social && <i className={this.getIconClassBySocial(social)} />}{icon && !social && icon}{(icon || social) && children && " "}{icon && children}{!icon && !social && (children || (!children && "Default text!"))}
       </ReactstrapButton>

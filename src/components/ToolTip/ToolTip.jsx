@@ -17,66 +17,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { FormGroup, Input, Label } from 'reactstrap'
+import { UncontrolledTooltip } from 'reactstrap'
 
 // Add your info to the docs if you edit this!
 
 /**
- * ### Baseline checkbox!
+ * ### Baseline tool tip component.
  * 
  * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
-class Checkbox extends React.Component {
+class ToolTip extends React.Component {
   constructor(props) {
     super(props)
   }
 
   static propTypes = {
     /**
-     * The label text.
+     * The placement of the tooltip. [top, bottom, left, right]
      */
-    label: PropTypes.string,
+    placement: PropTypes.string.isRequired,
     /**
-     * Function to handle change.
+     * The target identifier of the element the tooltip should pop up at.
      */
-    onChange: PropTypes.func,
+    target: PropTypes.string.isRequired,
     /**
-     * Sets whether the checkbox is enabled or disabled.
+     * The delay of the tooltip.
      */
-    disabled: PropTypes.bool,
+    delay: PropTypes.number,
     /**
-     * Sets whether the checkbox is inline or not.
+     * The label to appear on the tooltip.
      */
-    inline: PropTypes.bool
+    label: PropTypes.string.isRequired
   }
 
   static defaultProps = {
-    label: "Default text!"
+    placement: "top",
+    delay: 0
   }
 
   render() {
-    const { label, onChange, disabled, inline } = this.props
+    const { placement, target, delay, label } = this.props
 
     return (
-      <FormGroup check inline={inline} disabled={disabled}>
-        <Label check>
-          <Input 
-            type="checkbox"
-            onChange={onChange}
-            disabled={disabled}
-          />
-          {' '}
-          {label}
-          <span className="form-check-sign">
-            <span className="check"></span>
-          </span>
-        </Label>
-      </FormGroup>
+      <UncontrolledTooltip placement={placement} target={target} delay={delay} >
+        {label}
+      </UncontrolledTooltip>
     )
   }
 }
 
-export { Checkbox }
+export { ToolTip }
 
-export default Checkbox
+export default ToolTip

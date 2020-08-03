@@ -14,11 +14,13 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Logo from 'rsg-components/Logo';
 import Markdown from 'rsg-components/Markdown';
 import Styled from 'rsg-components/Styled';
+
+import { UncontrolledDropdown as Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 
 const xsmall = '@media (max-width: 600px)';
 
@@ -44,7 +46,8 @@ const styles = ({ font, base, light, link, baseBackground, mq }) => ({
 		marginRight: '-0.5em',
 		[xsmall]: {
 			margin: [[10, 0, 0]],
-		},
+    },
+    display: "flex"
 	},
 	headerLink: {
 		'&, &:link, &:visited': {
@@ -56,6 +59,20 @@ const styles = ({ font, base, light, link, baseBackground, mq }) => ({
 		'&:hover, &:active': {
 			color: '#fff',
 			cursor: 'pointer',
+		},
+  },
+  headerLinkDropdown: {
+		'&, &:link, &:visited': {
+			marginLeft: '0.5em',
+			marginRight: '0.5em',
+			fontFamily: font,
+			color: '#efefef',
+		},
+		'&:hover, &:active': {
+			color: '#fff',
+      cursor: 'pointer',
+      marginLeft: '0.5em',
+			marginRight: '0.5em',
 		},
 	},
 	content: {
@@ -79,6 +96,10 @@ const styles = ({ font, base, light, link, baseBackground, mq }) => ({
 });
 
 export function StyleGuideRenderer({ classes, title, homepageUrl, children }) {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
 	return (
 		<div className={classes.root}>
 			<header className={classes.header}>
@@ -86,17 +107,37 @@ export function StyleGuideRenderer({ classes, title, homepageUrl, children }) {
 					<div className={classes.bar}>
 						<Logo>{title}</Logo>
 						<nav className={classes.nav}>
+              <Dropdown isOpen={dropdownOpen} toggle={toggle} className="ml-auto mr-2">
+                <DropdownToggle tag="a" className={classes.headerLinkDropdown} caret>
+                  Components
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem href="#button">Button</DropdownItem>
+                  <DropdownItem href="#checkbox">Checkbox</DropdownItem>
+                  <DropdownItem href="#dropdown">Dropdown</DropdownItem>
+                  <DropdownItem href="#infoarea">InfoArea</DropdownItem>
+                  <DropdownItem href="#progress">Progress</DropdownItem>
+                  <DropdownItem href="#radio">Radio</DropdownItem>
+                  <DropdownItem href="#select">Select</DropdownItem>
+                  <DropdownItem href="#slider">Slider</DropdownItem>
+                  <DropdownItem href="#switch">Switch</DropdownItem>
+                  <DropdownItem href="#tags">Tags</DropdownItem>
+                  <DropdownItem href="#text">Text</DropdownItem>
+                  <DropdownItem href="#textinput">TextInput</DropdownItem>
+                  <DropdownItem href="#tooltip">ToolTip</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
 							<a
 								className={classes.headerLink}
 								href="https://revibe.tech"
 							>
-								Revibe
+								Revibe Music
 							</a>
 							<a
 								className={classes.headerLink}
 								href="https://artists.revibe.tech"
 							>
-								Artists
+								Revibe Artists
 							</a>
 						</nav>
 					</div>

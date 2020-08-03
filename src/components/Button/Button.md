@@ -74,3 +74,10 @@ import { Button } from 'revibe-component-library'
 <Button social="facebook" round />
 <Button social="google" round />
 ```
+
+### Button Icons and Sizing
+```js padded
+<Button social="twitter" simple round size="sm" />
+<Button social="twitter" simple round />
+<Button social="twitter" simple round size="lg" />
+```
