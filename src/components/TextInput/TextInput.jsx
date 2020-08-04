@@ -30,6 +30,21 @@ import { InputGroup, Input as ReactstrapInput, InputGroupAddon, InputGroupText, 
 class TextInput extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      focused: ""
+    }
+
+    this.onFocus = this.onFocus.bind(this)
+    this.onBlur = this.onBlur.bind(this)
+  }
+
+  onFocus = () => {
+    this.setState({ focused: "input-group-focus" })
+  }
+
+  onBlur = () => {
+    this.setState({ focused: "" })
   }
 
   static propTypes = {
@@ -64,20 +79,25 @@ class TextInput extends React.Component {
     /**
      * Sets the classes used for the form group. Useful for applying if a field is good (has-success) or bad (has-danger).
      */
-    formClassName: PropTypes.string
+    formClassName: PropTypes.string,
+    /**
+     * Sets the class name used for the regular input groups. Useful for applying if a field is good (has-success) or bad (has-danger).
+     */
+    regClassName: PropTypes.string
   }
 
   static defaultProps = {
-    formClassName: ""
+    formClassName: "",
+    regClassName: ""
   }
 
   render() {
-    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName } = this.props
+    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName } = this.props
 
     return (
       <>
         {!form ? 
-          <InputGroup size={size}>
+          <InputGroup size={size} className={this.state.focused + " " + regClassName}>
             {prepend && 
               <InputGroupAddon addonType="prepend">
                 {prepend && (!prepend.type || prepend.type === "i") ?
@@ -90,6 +110,8 @@ class TextInput extends React.Component {
             <ReactstrapInput 
               placeholder={placeholder}
               onChange={onChange}
+              onFocus={this.onFocus}
+              onBlur={this.onBlur}
               {...this.props}
             />
             {append &&

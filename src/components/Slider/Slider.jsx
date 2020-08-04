@@ -33,12 +33,12 @@ class Slider extends React.Component {
   }
 
   componentDidMount() {
-    const { rangeMin, rangeMax, step } = this.props
+    const { rangeMin, rangeMax, step, start } = this.props
 
     var slider = this.refs.slider;
 
     NoUISlider.create(slider, {
-      start: [40],
+      start: [ start ],
       connect: [true, false],
       step: step,
       range: { min: rangeMin, max: rangeMax }
@@ -61,13 +61,18 @@ class Slider extends React.Component {
     /**
      * The step size of the slider.
      */
-    step: PropTypes.number
+    step: PropTypes.number,
+    /**
+     * The starting value or values for the slider.
+     */
+    start: PropTypes.number
   }
 
   static defaultProps = {
     rangeMin: 0,
     rangeMax: 100,
-    step: 1
+    step: 1,
+    start: 40
   }
 
   render() {

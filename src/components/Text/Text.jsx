@@ -36,9 +36,9 @@ class Text extends React.Component {
      */
     children: PropTypes.node.isRequired,
     /**
-     * The header class to use. [h1, h2, h3, h4, h5, h6]
+     * The tag to use for the element to be.
      */
-    header: PropTypes.string,
+    tag: PropTypes.string,
     /**
      * The display header to use. [1-4]
      */
@@ -58,22 +58,46 @@ class Text extends React.Component {
     /**
      * Keeps the text from expanding the width of the line.
      */
-    inline: PropTypes.bool
+    inline: PropTypes.bool,
+    /**
+     * The additional classes to add.
+     */
+    className: PropTypes.string,
+    /**
+     * The styles to use.
+     */
+    style: PropTypes.object,
+    /**
+     * The font to use.
+     */
+    font: PropTypes.object,
+    /**
+     * The size of the font.
+     */
+    size: PropTypes.string,
+    /**
+     * The weight of the font.
+     */
+    weight: PropTypes.string
   }
 
   static defaultProps = {
-    children: "Bruh where the text at."
+    children: "Bruh where the text at.",
+    tag: "p",
+    className: ""
   }
 
   render() {
-    const { children, header, display, muted, lead, color, inline } = this.props
+    const { children, display, muted, lead, color, inline, tag: Tag, className, style, font, size, weight } = this.props
 
     return (
-      <p
-        className={`${header ? `${header} ` : ""}${display ? `display-${display} ` : ""}${muted ? "text-muted " : ""}${lead ? "lead " : ""}${color ? `text-${color} ` : ""}${inline ? "w-auto d-inline-block " : ""}`}
+      <Tag
+        className={`${display ? `display-${display} ` : ""}${muted ? "text-muted " : ""}${lead ? "lead " : ""}${color ? `text-${color} ` : ""}${inline ? "w-auto d-inline-block " : ""}${className}`}
+        style={{ fontFamily: font, fontSize: size, fontWeight: weight, ...style }}
+        {...this.props}
       >
         {children}
-      </p>
+      </Tag>
     )
   }
 }

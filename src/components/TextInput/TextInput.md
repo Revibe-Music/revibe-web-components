@@ -24,6 +24,8 @@ import { TextInput } from 'revibe-component-library'
 ### Input Prepend/Append with an Icon
 ```js
 <TextInput prepend={<i className="fab fa-accessible-icon" />} placeholder="Use an icon as well!" />
+<TextInput prepend={<i className="fab fa-accessible-icon" />} placeholder="Use an icon as well!" regClassName="has-success" />
+<TextInput prepend={<i className="fab fa-accessible-icon" />} placeholder="Use an icon as well!" regClassName="has-danger" />
 ```
 
 ### Input Field Size

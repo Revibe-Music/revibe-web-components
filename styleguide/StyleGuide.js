@@ -113,6 +113,7 @@ export function StyleGuideRenderer({ classes, title, homepageUrl, children }) {
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem href="#button">Button</DropdownItem>
+                  <DropdownItem href="#card">Card</DropdownItem>
                   <DropdownItem href="#checkbox">Checkbox</DropdownItem>
                   <DropdownItem href="#dropdown">Dropdown</DropdownItem>
                   <DropdownItem href="#infoarea">InfoArea</DropdownItem>
@@ -121,6 +122,7 @@ export function StyleGuideRenderer({ classes, title, homepageUrl, children }) {
                   <DropdownItem href="#select">Select</DropdownItem>
                   <DropdownItem href="#slider">Slider</DropdownItem>
                   <DropdownItem href="#switch">Switch</DropdownItem>
+                  <DropdownItem href="#tabs">Tabs</DropdownItem>
                   <DropdownItem href="#tags">Tags</DropdownItem>
                   <DropdownItem href="#text">Text</DropdownItem>
                   <DropdownItem href="#textinput">TextInput</DropdownItem>
