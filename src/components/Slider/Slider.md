@@ -9,7 +9,9 @@ import { Slider } from 'revibe-component-library'
 
 ### Slider Examples
 ```js padded
-<Slider />
-<br/>
-<Slider color="primary" />
+<div className="content">
+  <Slider />
+  <br/>
+  <Slider color="primary" />
+</div>
 ```
