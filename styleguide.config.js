@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   webpackConfig: {
     module: {
@@ -17,14 +19,16 @@ module.exports = {
           ]
         },         
         {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
-        {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
-        {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
-        {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
-        {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"}
+        {test: /\.(woff|woff2|eot|ttf|otf)$/, loader: 'file-loader'}
       ]
     }
   },
   require: [
       "./config/masterStyles.scss"
-  ]
+  ],
+  title: "Revibe Component Library",
+  styleguideComponents: {
+		StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide')
+  },
+  styleguideDir: "./build"
 };

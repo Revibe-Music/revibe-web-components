@@ -8,7 +8,7 @@ import { Button as ReactstrapButton } from 'reactstrap'
 /**
  * ### Baseline button!
  * 
- * @version 0.0.1
+ * @version 1.0.0
  * @author Noah Templet ([w3aseL](https://github.com/w3aseL))
  */
 class Button extends React.Component {
@@ -42,9 +42,9 @@ class Button extends React.Component {
      */
     onClick: PropTypes.func,
     /**
-     * Changes the button to an outline style.
+     * Changes the button to a simple style.
      */
-    outline: PropTypes.bool,
+    simple: PropTypes.simple,
     /**
      * Changes the button to a rounded style.
      */
@@ -64,33 +64,63 @@ class Button extends React.Component {
     /**
      * Sets the href target of a button.
      */
-    target: PropTypes.string
+    target: PropTypes.string,
+    /**
+     * Sets the social media of choice for the button. Overrides color.
+     * 
+     * List: [ twitter, facebook, google, linkedin, pinterest, youtube, tumblr, github, behance, dribble, reddit ]
+     */
+    social: PropTypes.string
   }
 
   static defaultProps = {
-    children: "Default text!",
-    color: "primary",
     active: false,
     disabled: false
   }
 
+  getIconClassBySocial = social => {
+    switch(social) {
+      case "twitter":
+        return "fab fa-twitter";
+      case "facebook":
+        return "fab fa-facebook";
+      case "google":
+        return "fab fa-linkedin";
+      case "linkedin":
+        return "fab fa-linkedin";
+      case "pinterest":
+        return "fab fa-pinterest";
+      case "youtube":
+        return "fab fa-youtube";
+      case "tumblr":
+        return "fab fa-tumblr";
+      case "github":
+        return "fab fa-github";
+      case "behance":
+        return "fab fa-behance";
+      case "dribble":
+        return "fab fa-dribble";
+      case "reddit":
+        return "fab fa-reddit";
+    }
+  }
+
   render() {
-    const { icon, outline, round, children, color, size, active, disabled, onClick, link, href, target } = this.props
+    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target, social } = this.props
 
     return (
       <ReactstrapButton
-        color={link ? "link" : color}
+        color={social ? social : !color ? "primary" : color}
         size={size}
         active={active}
         disabled={disabled}
         onClick={onClick}
-        outline={outline}
-        className={`${round && "btn-round"}`}
-        link={link}
+        className={`${link ? "btn-link" : ""} ${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
         href={href}
         target={target}
+        {...this.props}
       >
-        {icon && icon}{icon && children && " "}{(!icon || (icon && children != Button.defaultProps.children)) && children}
+        {social && <i className={this.getIconClassBySocial(social)} />}{icon && !social && icon}{(icon || social) && children && " "}{icon && children}{!icon && !social && (children || (!children && "Default text!"))}
       </ReactstrapButton>
     )
   }

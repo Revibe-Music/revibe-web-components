@@ -46,18 +46,38 @@ import { Button } from 'revibe-component-library'
 *Bootstrap does not have rounded buttons, but once our Bootstrap implementation is in, it'll use it*
 ```js padded
 <Button>Normal</Button>
-<Button outline>Outline</Button>
+<Button simple>Simple</Button>
 <Button round>Round</Button>
 ```
 
 ### Button Icons
 *Using FontAwesome as an example*
 ```js padded
-<Button outline icon={<i className="fab fa-accessible-icon" />}></Button>
+<Button icon={<i className="fas fa-paper-plane" />} />
+<Button simple icon={<i className="fab fa-accessible-icon" />} />
+<Button simple round icon={<i className="far fa-stop-circle" />} />
 ```
 
 ### Button Links
 ```js padded
-<Button link href="/#button" >Button Link</Button>
+<Button link href="#button" >Button Link</Button>
 <Button link href="https://revibe.tech" target="_blank">External Link</Button>
+<Button link href="#button" color="success" >Success Link</Button>
+```
+
+### Social Media Buttons
+```js padded
+<Button social="twitter" simple round />
+<Button social="facebook" simple round />
+<Button social="google" simple round />
+<Button social="twitter" round />
+<Button social="facebook" round />
+<Button social="google" round />
+```
+
+### Button Icons and Sizing
+```js padded
+<Button social="twitter" simple round size="sm" />
+<Button social="twitter" simple round />
+<Button social="twitter" simple round size="lg" />
 ```
