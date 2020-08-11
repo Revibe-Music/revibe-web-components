@@ -30,5 +30,5 @@ module.exports = {
   styleguideComponents: {
 		StyleGuideRenderer: path.join(__dirname, 'styleguide/StyleGuide')
   },
-  styleguideDir: "./build"
+  styleguideDir: "./build/web-component-library"
 };
