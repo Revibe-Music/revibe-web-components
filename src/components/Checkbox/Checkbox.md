@@ -2,8 +2,6 @@
 
 Importing the checkbox.
 ```js static
-import Checkbox from 'revibe-component-library/Checkbox'
-
 import { Checkbox } from 'revibe-component-library'
 ```
 

@@ -2,8 +2,6 @@
 
 Importing the button.
 ```js static
-import TextInput from 'revibe-component-library/Input'
-
 import { TextInput } from 'revibe-component-library'
 ```
 

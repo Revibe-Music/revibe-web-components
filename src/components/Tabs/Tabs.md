@@ -2,8 +2,6 @@
 
 Importing the tabs.
 ```js static
-import Tabs from 'revibe-component-library/Tabs'
-
 import { Tabs } from 'revibe-component-library'
 ```
 

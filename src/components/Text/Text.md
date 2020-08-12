@@ -2,8 +2,6 @@
 
 Importing the text component.
 ```js static
-import Text from 'revibe-component-library/Text'
-
 import { Text } from 'revibe-component-library'
 ```
 

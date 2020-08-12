@@ -1,12 +1,16 @@
 {
   "name": "@revibe-dev/revibe-component-library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A component library built for sharing components to all the Revibe websites (main site, Aritst Portal, etc.).",
-  "main": "./src/components/index.js",
+  "main": "./lib/index.js",
+  "browser": "lib/index.umd.js",
+  "module": "lib/index.es.js",
   "scripts": {
     "test": "jest",
     "docs": "styleguidist server",
-    "build": "styleguidist build"
+    "build": "styleguidist build",
+    "build-lib": "rollup -c",
+    "prepublishOnly": "rm -rf lib && npm run build-lib"
   },
   "keywords": [
     "revibe",
@@ -51,6 +55,13 @@
     "react-styleguidist": "^11.0.8",
     "react-tagsinput": "^3.19.0",
     "reactstrap": "^8.5.1",
+    "rollup": "^2.23.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-terser": "^7.0.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "rsg-components": "^3.0.0",
     "sass-loader": "^9.0.2",
     "style-loader": "^1.2.1",

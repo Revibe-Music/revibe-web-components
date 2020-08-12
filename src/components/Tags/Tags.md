@@ -2,8 +2,6 @@
 
 Importing the tags.
 ```js static
-import Tags from 'revibe-component-library/Tags'
-
 import { Tags } from 'revibe-component-library'
 ```
 

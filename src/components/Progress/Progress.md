@@ -2,8 +2,6 @@
 
 Importing the progress bar.
 ```js static
-import Progress from 'revibe-component-library/Progress'
-
 import { Progress } from 'revibe-component-library'
 ```
 

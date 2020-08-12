@@ -2,8 +2,6 @@
 
 Importing the dropdown.
 ```js static
-import Dropdown from 'revibe-component-library/Text'
-
 import { Dropdown } from 'revibe-component-library'
 ```
 
