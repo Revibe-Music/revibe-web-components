@@ -2,8 +2,6 @@
 
 Importing the card.
 ```js static
-import Card from 'revibe-component-library/Card'
-
 import { Card } from 'revibe-component-library'
 ```
 

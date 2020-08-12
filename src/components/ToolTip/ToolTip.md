@@ -2,8 +2,6 @@
 
 Importing the tooltip.
 ```js static
-import ToolTip from 'revibe-component-library/ToolTip'
-
 import { ToolTip } from 'revibe-component-library'
 ```
 

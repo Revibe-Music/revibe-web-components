@@ -2,8 +2,6 @@
 
 Importing the info area.
 ```js static
-import InfoArea from 'revibe-component-library/Button'
-
 import { InfoArea } from 'revibe-component-library'
 ```
 

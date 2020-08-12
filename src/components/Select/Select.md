@@ -2,8 +2,6 @@
 
 Importing the switch.
 ```js static
-import Select from 'revibe-component-library/Select'
-
 import { Select } from 'revibe-component-library'
 ```
 

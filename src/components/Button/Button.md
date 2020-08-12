@@ -2,8 +2,6 @@
 
 Importing the button.
 ```js static
-import Button from 'revibe-component-library/Button'
-
 import { Button } from 'revibe-component-library'
 ```
 
