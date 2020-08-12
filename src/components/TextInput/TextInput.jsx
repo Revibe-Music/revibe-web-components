@@ -39,11 +39,11 @@ class TextInput extends React.Component {
     this.onBlur = this.onBlur.bind(this)
   }
 
-  onFocus = () => {
+  onFocus() {
     this.setState({ focused: "input-group-focus" })
   }
 
-  onBlur = () => {
+  onBlur() {
     this.setState({ focused: "" })
   }
 

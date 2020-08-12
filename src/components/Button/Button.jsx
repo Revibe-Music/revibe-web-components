@@ -16,7 +16,7 @@ class Button extends React.Component {
     super(props)
   }
 
-  getIconClassBySocial = social => {
+  getIconClassBySocial(social) {
     switch(social) {
       case "twitter":
         return "fab fa-twitter";
