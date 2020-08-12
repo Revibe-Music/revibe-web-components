@@ -76,7 +76,7 @@ const styles = ({ font, base, light, link, baseBackground, mq }) => ({
 		},
 	},
 	content: {
-		maxWidth: 1000,
+		maxWidth: 1200,
 		padding: [[15, 30]],
 		margin: [[0, 'auto']],
 		[mq.small]: {
