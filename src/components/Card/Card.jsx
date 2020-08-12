@@ -32,41 +32,6 @@ class Card extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The header of the card.
-     */
-    header: PropTypes.node,
-    /**
-     * The footer of the card.
-     */
-    footer: PropTypes.node,
-    /**
-     * The body of the card.
-     */
-    children: PropTypes.node.isRequired,
-    /**
-     * The source of the header image.
-     */
-    imgSrc: PropTypes.string,
-    /**
-     * The width of the card.
-     */
-    width: PropTypes.string,
-    /**
-     * Other style options of the card.
-     */
-    style: PropTypes.object,
-    /**
-     * The color of the card.
-     */
-    color: PropTypes.string
-  }
-
-  static defaultProps = {
-    style: {}
-  }
-
   render() {
     const { header, footer, children, imgSrc, width, style, color } = this.props
 
@@ -87,6 +52,27 @@ class Card extends React.Component {
       </RSCard>
     )
   }
+}
+
+Card.propTypes = {
+  /** The header of the card. */
+  header: PropTypes.node,
+  /** The footer of the card. */
+  footer: PropTypes.node,
+  /** The body of the card. */
+  children: PropTypes.node.isRequired,
+  /** The source of the header image. */
+  imgSrc: PropTypes.string,
+  /** The width of the card. */
+  width: PropTypes.string,
+  /** Other style options of the card. */
+  style: PropTypes.object,
+  /** The color of the card. */
+  color: PropTypes.string
+}
+
+Card.defaultProps = {
+  style: {}
 }
 
 export { Card }

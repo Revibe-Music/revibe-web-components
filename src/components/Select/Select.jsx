@@ -38,42 +38,6 @@ class Select extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  static propTypes = {
-    /**
-     * The placeholder for the select dropdown.
-     */
-    placeholder: PropTypes.string,
-    /**
-     * The color of the select dropdown.
-     */
-    color: PropTypes.string,
-    /**
-     * Sets if it multiple options are selectable
-     */
-    isMulti: PropTypes.bool,
-    /**
-     * Options to choose from for the select.
-     */
-    options: PropTypes.array.isRequired,
-    /**
-     * The function that processes changes to the selector.
-     */
-    onChange: function(props, propName, componentName) {
-      var fn = props[propName];
-      if(!fn.prototype ||
-         (typeof fn.prototype.constructor !== 'function' &&
-          fn.prototype.constructor.length !== 1)) {
-          return new Error(propName + 'must be a function with an argument!');
-      }
-    }
-  }
-
-  static defaultProps = {
-    placeholder: "Pick an Option!",
-    color: "primary",
-    options: [ "Option A", "Option B" ]
-  }
-
   componentWillMount() {
     const { options } = this.props
 
@@ -105,6 +69,32 @@ class Select extends React.Component {
       />
     )
   }
+}
+
+Select.propTypes = {
+  /** The placeholder for the select dropdown. */
+  placeholder: PropTypes.string,
+  /** The color of the select dropdown. */
+  color: PropTypes.string,
+  /** Sets if it multiple options are selectable */
+  isMulti: PropTypes.bool,
+  /** Options to choose from for the select. */
+  options: PropTypes.array.isRequired,
+  /** The function that processes changes to the selector. */
+  onChange: function(props, propName, componentName) {
+    var fn = props[propName];
+    if(!fn.prototype ||
+       (typeof fn.prototype.constructor !== 'function' &&
+        fn.prototype.constructor.length !== 1)) {
+        return new Error(propName + 'must be a function with an argument!');
+    }
+  }
+}
+
+Select.defaultProps = {
+  placeholder: "Pick an Option!",
+  color: "primary",
+  options: [ "Option A", "Option B" ]
 }
 
 export { Select }

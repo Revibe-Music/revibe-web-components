@@ -43,43 +43,6 @@ class Tabs extends React.Component {
       this.setState({ activeTab: tab })
   }
 
-  static propTypes = {
-    /**
-     * The list of labels for the tabs. Nodes are allowed (for using icons).
-     */
-    labels: PropTypes.array.isRequired,
-    /**
-     * The list of content for the tabs. Nodes are encouraged (it is content anyways).
-     */
-    content: PropTypes.array.isRequired,
-    /**
-     * Sets if the tab buttons are pills.
-     */
-    pills: PropTypes.bool,
-    /**
-     * The color of the pills.
-     */
-    pillColor: PropTypes.string,
-    /**
-     * Sets the pills to a vertical orientation.
-     */
-    vertical: PropTypes.bool,
-    /**
-     * Sets the horizontal placement of the tabs. [center, end]
-     */
-    tabPlacement: PropTypes.string,
-    /**
-     * Sets the placement of text. [left, center, right]
-     */
-    textPlacement: PropTypes.string
-  }
-
-  static defaultProps = {
-    labels: [ "tab1", "tab2" ],
-    content: [ "This is content for tab 1.", "This is content for tab 2." ],
-    pillColor: "primary"
-  }
-
   render() {
     const { labels, content, pills, pillColor, vertical, tabPlacement, textPlacement } = this.props
 
@@ -136,6 +99,29 @@ class Tabs extends React.Component {
       </>
     )
   }
+}
+
+Tabs.propTypes = {
+  /** The list of labels for the tabs. Nodes are allowed (for using icons). */
+  labels: PropTypes.array.isRequired,
+  /** The list of content for the tabs. Nodes are encouraged (it is content anyways). */
+  content: PropTypes.array.isRequired,
+  /** Sets if the tab buttons are pills. */
+  pills: PropTypes.bool,
+  /** The color of the pills. */
+  pillColor: PropTypes.string,
+  /** Sets the pills to a vertical orientation. */
+  vertical: PropTypes.bool,
+  /** Sets the horizontal placement of the tabs. [center, end] */
+  tabPlacement: PropTypes.string,
+  /** Sets the placement of text. [left, center, right] */
+  textPlacement: PropTypes.string
+}
+
+Tabs.defaultProps = {
+  labels: [ "tab1", "tab2" ],
+  content: [ "This is content for tab 1.", "This is content for tab 2." ],
+  pillColor: "primary"
 }
 
 export { Tabs }

@@ -30,48 +30,6 @@ class InfoArea extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * Color of the blob for the info area
-     */
-    color: PropTypes.string,
-    /**
-     * Icon for the blob to use
-     */
-    icon: PropTypes.node.isRequired,
-    /**
-     * Title of the info area. REQUIRED
-     */
-    title: PropTypes.string.isRequired,
-    /**
-     * Description of the info area.
-     */
-    description: PropTypes.string,
-    /**
-     * Color of the icon.
-     */
-    iconColor: PropTypes.string,
-    /**
-     * Determines if the icon and blob will hover vertically over text.
-     */
-    hover: PropTypes.bool.isRequired,
-    /**
-     * An appendable object. Usually a button link.
-     */
-    append: PropTypes.node,
-    /**
-     * Hides the blob. No need for the color prop if the blob is hidden!
-     */
-    noBlob: PropTypes.bool
-  }
-
-  static defaultProps = {
-    color: "black",
-    icon: <i className="tim-icons icon-html5" />,
-    iconColor: "primary",
-    hover: true
-  }
-
   /**
    * getBlobByColor
    * ===========
@@ -124,6 +82,32 @@ class InfoArea extends React.Component {
       </>
     );
   }
+}
+
+InfoArea.propTypes = {
+  /** Color of the blob for the info area */
+  color: PropTypes.string,
+  /** Icon for the blob to use */
+  icon: PropTypes.node.isRequired,
+  /** Title of the info area. REQUIRED */
+  title: PropTypes.string.isRequired,
+  /** Description of the info area. */
+  description: PropTypes.string,
+  /** Color of the icon. */
+  iconColor: PropTypes.string,
+  /** Determines if the icon and blob will hover vertically over text. */
+  hover: PropTypes.bool.isRequired,
+  /** An appendable object. Usually a button link. */
+  append: PropTypes.node,
+  /** Hides the blob. No need for the color prop if the blob is hidden! */
+  noBlob: PropTypes.bool
+}
+
+InfoArea.defaultProps = {
+  color: "black",
+  icon: <i className="tim-icons icon-html5" />,
+  iconColor: "primary",
+  hover: true
 }
 
 export { InfoArea }

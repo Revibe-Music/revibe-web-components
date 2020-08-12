@@ -32,29 +32,6 @@ class Checkbox extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The label text.
-     */
-    label: PropTypes.string,
-    /**
-     * Function to handle change.
-     */
-    onChange: PropTypes.func,
-    /**
-     * Sets whether the checkbox is enabled or disabled.
-     */
-    disabled: PropTypes.bool,
-    /**
-     * Sets whether the checkbox is inline or not.
-     */
-    inline: PropTypes.bool
-  }
-
-  static defaultProps = {
-    label: "Default text!"
-  }
-
   render() {
     const { label, onChange, disabled, inline } = this.props
 
@@ -75,6 +52,21 @@ class Checkbox extends React.Component {
       </FormGroup>
     )
   }
+}
+
+Checkbox.propTypes = {
+  /** The label text. */
+  label: PropTypes.string,
+  /** Function to handle change. */
+  onChange: PropTypes.func,
+  /** Sets whether the checkbox is enabled or disabled. */
+  disabled: PropTypes.bool,
+  /** Sets whether the checkbox is inline or not. */
+  inline: PropTypes.bool
+}
+
+Checkbox.defaultProps = {
+  label: "Default text!"
 }
 
 export { Checkbox }
