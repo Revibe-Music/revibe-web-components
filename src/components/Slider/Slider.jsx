@@ -45,36 +45,6 @@ class Slider extends React.Component {
     });
   }
 
-  static propTypes = {
-    /**
-     * The color of the slider.
-     */
-    color: PropTypes.string,
-    /**
-     * The minimum range of the slider.
-     */
-    rangeMin: PropTypes.number,
-    /**
-     * The maximum range of the slider.
-     */
-    rangeMax: PropTypes.number,
-    /**
-     * The step size of the slider.
-     */
-    step: PropTypes.number,
-    /**
-     * The starting value or values for the slider.
-     */
-    start: PropTypes.number
-  }
-
-  static defaultProps = {
-    rangeMin: 0,
-    rangeMax: 100,
-    step: 1,
-    start: 40
-  }
-
   render() {
     const { color } = this.props
 
@@ -82,6 +52,26 @@ class Slider extends React.Component {
       <div className={`slider ${color ? `slider-${color}` : ""}`} ref="slider" />
     )
   }
+}
+
+Slider.propTypes = {
+  /** The color of the slider. */
+  color: PropTypes.string,
+  /** The minimum range of the slider. */
+  rangeMin: PropTypes.number,
+  /** The maximum range of the slider. */
+  rangeMax: PropTypes.number,
+  /** The step size of the slider. */
+  step: PropTypes.number,
+  /** The starting value or values for the slider. */
+  start: PropTypes.number
+}
+
+Slider.defaultProps = {
+  rangeMin: 0,
+  rangeMax: 100,
+  step: 1,
+  start: 40
 }
 
 export { Slider }

@@ -47,50 +47,6 @@ class TextInput extends React.Component {
     this.setState({ focused: "" })
   }
 
-  static propTypes = {
-    /**
-     * Text to place into input field as a placeholder.
-     */
-    placeholder: PropTypes.string,
-    /**
-     * Text to prepend to the beginning of the input.
-     */
-    prepend: PropTypes.node,
-    /**
-     * Text to append to the beginning of the input.
-     */
-    append: PropTypes.node,
-    /**
-     * Size of the input field. [sm, lg]
-     */
-    size: PropTypes.string,
-    /**
-     * A function to handle when text is changed.
-     */
-    onChange: PropTypes.func,
-    /**
-     * The label to be used above the form input.
-     */
-    formLabel: PropTypes.string,
-    /**
-     * Whether to use a form or regular input. Will override: size, append, and prepend.
-     */
-    form: PropTypes.bool,
-    /**
-     * Sets the classes used for the form group. Useful for applying if a field is good (has-success) or bad (has-danger).
-     */
-    formClassName: PropTypes.string,
-    /**
-     * Sets the class name used for the regular input groups. Useful for applying if a field is good (has-success) or bad (has-danger).
-     */
-    regClassName: PropTypes.string
-  }
-
-  static defaultProps = {
-    formClassName: "",
-    regClassName: ""
-  }
-
   render() {
     const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName } = this.props
 
@@ -136,6 +92,32 @@ class TextInput extends React.Component {
       </>
     )
   }
+}
+
+TextInput.propTypes = {
+  /** Text to place into input field as a placeholder. */
+  placeholder: PropTypes.string,
+  /** Text to prepend to the beginning of the input. */
+  prepend: PropTypes.node,
+  /** Text to append to the beginning of the input. */
+  append: PropTypes.node,
+  /** Size of the input field. [sm, lg] */
+  size: PropTypes.string,
+  /** A function to handle when text is changed. */
+  onChange: PropTypes.func,
+  /** The label to be used above the form input. */
+  formLabel: PropTypes.string,
+  /** Whether to use a form or regular input. Will override: size, append, and prepend. */
+  form: PropTypes.bool,
+  /** Sets the classes used for the form group. Useful for applying if a field is good (has-success) or bad (has-danger). */
+  formClassName: PropTypes.string,
+  /** Sets the class name used for the regular input groups. Useful for applying if a field is good (has-success) or bad (has-danger). */
+  regClassName: PropTypes.string
+}
+
+TextInput.defaultProps = {
+  formClassName: "",
+  regClassName: ""
 }
 
 export { TextInput }

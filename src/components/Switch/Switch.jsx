@@ -34,48 +34,6 @@ class Switch extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  static propTypes = {
-    /**
-     * The color when the switch is on.
-     */
-    onColor: PropTypes.string,
-    /**
-     * The color when the switch is off.
-     */
-    offColor: PropTypes.string,
-    /**
-     * The default value of the switch
-     */
-    defaultValue: PropTypes.bool,
-    /**
-     * The text when the switch is on.
-     */
-    onText: PropTypes.node,
-    /**
-     * The text when the switch is off.
-     */
-    offText: PropTypes.node,
-    /**
-     * Handles when the state of the switch changes.
-     */
-    onChange: function(props, propName, componentName) {
-      var fn = props[propName];
-      if(!fn.prototype ||
-         (typeof fn.prototype.constructor !== 'function' &&
-          fn.prototype.constructor.length !== 1)) {
-          return new Error(propName + 'must be a function with an argument!');
-      }
-    }
-  }
-
-  static defaultProps = {
-    onColor: "default",
-    offColor: "default",
-    defaultValue: false,
-    onText: "",
-    offText: ""
-  }
-
   handleChange(elem, state) {
     const { onChange } = this.props
 
@@ -96,6 +54,36 @@ class Switch extends React.Component {
       />
     )
   }
+}
+
+Switch.propTypes = {
+  /** The color when the switch is on. */
+  onColor: PropTypes.string,
+  /** The color when the switch is off. */
+  offColor: PropTypes.string,
+  /** The default value of the switch */
+  defaultValue: PropTypes.bool,
+  /** The text when the switch is on. */
+  onText: PropTypes.node,
+  /** The text when the switch is off. */
+  offText: PropTypes.node,
+  /** Handles when the state of the switch changes. */
+  onChange: function(props, propName, componentName) {
+    var fn = props[propName];
+    if(!fn.prototype ||
+       (typeof fn.prototype.constructor !== 'function' &&
+        fn.prototype.constructor.length !== 1)) {
+        return new Error(propName + 'must be a function with an argument!');
+    }
+  }
+}
+
+Switch.defaultProps = {
+  onColor: "default",
+  offColor: "default",
+  defaultValue: false,
+  onText: "",
+  offText: ""
 }
 
 export { Switch }

@@ -16,68 +16,6 @@ class Button extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The button's children elements. Usually text!
-     */
-    children: PropTypes.node,
-    /**
-     * Color of the button. [primary, secondary, info, success, danger, warning]
-     */
-    color: PropTypes.string.isRequired,
-    /**
-     * Size of the button. [sm, lg]
-     */
-    size: PropTypes.string,
-    /**
-     * Determines if the button is active.
-     */
-    active: PropTypes.bool.isRequired,
-    /**
-     * Determines if the button is disabled.
-     */
-    disabled: PropTypes.bool.isRequired,
-    /**
-     * The function to fire on button click.
-     */
-    onClick: PropTypes.func,
-    /**
-     * Changes the button to a simple style.
-     */
-    simple: PropTypes.simple,
-    /**
-     * Changes the button to a rounded style.
-     */
-    round: PropTypes.bool,
-    /**
-     * Makes the button into a link button.
-     */
-    link: PropTypes.bool,
-    /**
-     * Sets the target link for a button.
-     */
-    href: PropTypes.string,
-    /**
-     * Sets the icon of a button. Can be used in junction with children.
-     */
-    icon: PropTypes.node,
-    /**
-     * Sets the href target of a button.
-     */
-    target: PropTypes.string,
-    /**
-     * Sets the social media of choice for the button. Overrides color.
-     * 
-     * List: [ twitter, facebook, google, linkedin, pinterest, youtube, tumblr, github, behance, dribble, reddit ]
-     */
-    social: PropTypes.string
-  }
-
-  static defaultProps = {
-    active: false,
-    disabled: false
-  }
-
   getIconClassBySocial = social => {
     switch(social) {
       case "twitter":
@@ -124,6 +62,44 @@ class Button extends React.Component {
       </ReactstrapButton>
     )
   }
+}
+
+Button.propTypes = {
+  /** The button's children elements. Usually text! */
+  children: PropTypes.node,
+  /** Color of the button. [primary, secondary, info, success, danger, warning] */
+  color: PropTypes.string.isRequired,
+  /** Size of the button. [sm, lg] */
+  size: PropTypes.string,
+  /** Determines if the button is active. */
+  active: PropTypes.bool.isRequired,
+  /** Determines if the button is disabled. */
+  disabled: PropTypes.bool.isRequired,
+  /** The function to fire on button click. */
+  onClick: PropTypes.func,
+  /** Changes the button to a simple style. */
+  simple: PropTypes.simple,
+  /** Changes the button to a rounded style. */
+  round: PropTypes.bool,
+  /** Makes the button into a link button. */
+  link: PropTypes.bool,
+  /** Sets the target link for a button. */
+  href: PropTypes.string,
+  /** Sets the icon of a button. Can be used in junction with children. */
+  icon: PropTypes.node,
+  /** Sets the href target of a button. */
+  target: PropTypes.string,
+  /**
+   * Sets the social media of choice for the button. Overrides color.
+   * 
+   * List: [ twitter, facebook, google, linkedin, pinterest, youtube, tumblr, github, behance, dribble, reddit ]
+   */
+  social: PropTypes.string
+}
+
+Button.defaultProps = {
+  active: false,
+  disabled: false
 }
 
 export { Button }

@@ -30,63 +30,6 @@ class Text extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The children. Likely text or links or other stuff.
-     */
-    children: PropTypes.node.isRequired,
-    /**
-     * The tag to use for the element to be.
-     */
-    tag: PropTypes.string,
-    /**
-     * The display header to use. [1-4]
-     */
-    display: PropTypes.number,
-    /**
-     * Mutes the text.
-     */
-    muted: PropTypes.bool,
-    /**
-     * Adds lead styling to the text.
-     */
-    lead: PropTypes.bool,
-    /**
-     * Adds color to the text.
-     */
-    color: PropTypes.color,
-    /**
-     * Keeps the text from expanding the width of the line.
-     */
-    inline: PropTypes.bool,
-    /**
-     * The additional classes to add.
-     */
-    className: PropTypes.string,
-    /**
-     * The styles to use.
-     */
-    style: PropTypes.object,
-    /**
-     * The font to use.
-     */
-    font: PropTypes.object,
-    /**
-     * The size of the font.
-     */
-    size: PropTypes.string,
-    /**
-     * The weight of the font.
-     */
-    weight: PropTypes.string
-  }
-
-  static defaultProps = {
-    children: "Bruh where the text at.",
-    tag: "p",
-    className: ""
-  }
-
   render() {
     const { children, display, muted, lead, color, inline, tag: Tag, className, style, font, size, weight } = this.props
 
@@ -100,6 +43,39 @@ class Text extends React.Component {
       </Tag>
     )
   }
+}
+
+Text.propTypes = {
+  /** The children. Likely text or links or other stuff. */
+  children: PropTypes.node.isRequired,
+  /** The tag to use for the element to be. */
+  tag: PropTypes.string,
+  /** The display header to use. [1-4] */
+  display: PropTypes.number,
+  /** Mutes the text. */
+  muted: PropTypes.bool,
+  /** Adds lead styling to the text. */
+  lead: PropTypes.bool,
+  /** Adds color to the text. */
+  color: PropTypes.color,
+  /** Keeps the text from expanding the width of the line. */
+  inline: PropTypes.bool,
+  /** The additional classes to add. */
+  className: PropTypes.string,
+  /** The styles to use. */
+  style: PropTypes.object,
+  /** The font to use. */
+  font: PropTypes.object,
+  /** The size of the font. */
+  size: PropTypes.string,
+  /** The weight of the font. */
+  weight: PropTypes.string
+}
+
+Text.defaultProps = {
+  children: "Bruh where the text at.",
+  tag: "p",
+  className: ""
 }
 
 export { Text }

@@ -40,37 +40,6 @@ class Tags extends React.Component {
     this.handleTags = this.handleTags.bind(this)
   }
 
-  static propTypes = {
-    /**
-     * The default list of tags to show.
-     */
-    tags: PropTypes.array,
-    /**
-     * The color of the tags.
-     */
-    color: PropTypes.string,
-    /**
-     * The function that processes changes to tags.
-     */
-    onChange: function(props, propName, componentName) {
-      var fn = props[propName];
-      if(!fn.prototype ||
-         (typeof fn.prototype.constructor !== 'function' &&
-          fn.prototype.constructor.length !== 1)) {
-          return new Error(propName + 'must be a function with an argument!');
-      }
-    },
-    /**
-     * Sets the tags to use uppercase.
-     */
-    uppercase: PropTypes.bool
-  }
-  
-  static defaultProps = {
-    tags: [],
-    color: "info"
-  }
-
   handleTags(tags) {
     const { onChange } = this.props
 
@@ -91,6 +60,29 @@ class Tags extends React.Component {
       />
     )
   }
+}
+
+Tags.propTypes = {
+  /** The default list of tags to show. */
+  tags: PropTypes.array,
+  /** The color of the tags. */
+  color: PropTypes.string,
+  /** The function that processes changes to tags. */
+  onChange: function(props, propName, componentName) {
+    var fn = props[propName];
+    if(!fn.prototype ||
+       (typeof fn.prototype.constructor !== 'function' &&
+        fn.prototype.constructor.length !== 1)) {
+        return new Error(propName + 'must be a function with an argument!');
+    }
+  },
+  /** Sets the tags to use uppercase. */
+  uppercase: PropTypes.bool
+}
+
+Tags.defaultProps = {
+  tags: [],
+  color: "info"
 }
 
 export { Tags }

@@ -32,30 +32,6 @@ class ToolTip extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The placement of the tooltip. [top, bottom, left, right]
-     */
-    placement: PropTypes.string.isRequired,
-    /**
-     * The target identifier of the element the tooltip should pop up at.
-     */
-    target: PropTypes.string.isRequired,
-    /**
-     * The delay of the tooltip.
-     */
-    delay: PropTypes.number,
-    /**
-     * The label to appear on the tooltip.
-     */
-    label: PropTypes.string.isRequired
-  }
-
-  static defaultProps = {
-    placement: "top",
-    delay: 0
-  }
-
   render() {
     const { placement, target, delay, label } = this.props
 
@@ -65,6 +41,22 @@ class ToolTip extends React.Component {
       </UncontrolledTooltip>
     )
   }
+}
+
+ToolTip.propTypes = {
+  /** The placement of the tooltip. [top, bottom, left, right] */
+  placement: PropTypes.string.isRequired,
+  /** The target identifier of the element the tooltip should pop up at. */
+  target: PropTypes.string.isRequired,
+  /** The delay of the tooltip. */
+  delay: PropTypes.number,
+  /** The label to appear on the tooltip. */
+  label: PropTypes.string.isRequired
+}
+
+ToolTip.defaultProps = {
+  placement: "top",
+  delay: 0
 }
 
 export { ToolTip }

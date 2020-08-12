@@ -32,40 +32,6 @@ class Dropdown extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * Show a caret on the toggle.
-     */
-    caret: PropTypes.bool,
-    /**
-     * Label for the dropdown button.
-     */
-    label: PropTypes.string.isRequired,
-    /**
-     * The options for the dropdown.
-     */
-    options: PropTypes.array.isRequired,
-    /**
-     * Sets the color of the dropdown.
-     */
-    color: PropTypes.string,
-    /**
-     * Sets if the dropdowns can be inline.
-     */
-    inline: PropTypes.bool,
-    /**
-     * Direction of the dropdown.
-     */
-    direction: PropTypes.string
-  }
-
-  static defaultProps = {
-    label: "Dropdown",
-    options: [
-      { label: "Default Item" }
-    ]
-  }
-
   render() {
     const { caret, label, options, color, inline, direction } = this.props
 
@@ -82,6 +48,28 @@ class Dropdown extends React.Component {
       </UncontrolledDropdown>
     )
   }
+}
+
+Dropdown.propTypes = {
+  /** Show a caret on the toggle. */
+  caret: PropTypes.bool,
+  /** Label for the dropdown button. */
+  label: PropTypes.string.isRequired,
+  /** The options for the dropdown. */
+  options: PropTypes.array.isRequired,
+  /** Sets the color of the dropdown. */
+  color: PropTypes.string,
+  /** Sets if the dropdowns can be inline. */
+  inline: PropTypes.bool,
+  /** Direction of the dropdown. */
+  direction: PropTypes.string
+}
+
+Dropdown.defaultProps = {
+  label: "Dropdown",
+  options: [
+    { label: "Default Item" }
+  ]
 }
 
 export { Dropdown }

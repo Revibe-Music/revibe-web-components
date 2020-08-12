@@ -32,42 +32,6 @@ class Progress extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The value of the progress bar.
-     */
-    value: PropTypes.number,
-    /**
-     * The maximum value of the progress bar.
-     */
-    max: PropTypes.number,
-    /**
-     * The label for the progress bar. No label for the multi-progress bar.
-     */
-    label: PropTypes.string,
-    /**
-     * The color of the progress bar.
-     */
-    color: PropTypes.string,
-    /**
-     * Has multiple bars.
-     */
-    multi: PropTypes.bool,
-    /**
-     * The list of values for a multi-progress bar.
-     */
-    values: PropTypes.array,
-    /**
-     * Sets a progress bar as striped.
-     */
-    striped: PropTypes.bool
-  }
-
-  static defaultProps = {
-    max: 100,
-    label: "Default"
-  }
-
   render() {
     const { value, max, label, color, multi, values, striped } = this.props
 
@@ -92,6 +56,28 @@ class Progress extends React.Component {
       </>
     )
   }
+}
+
+Progress.propTypes = {
+  /** The value of the progress bar. */
+  value: PropTypes.number,
+  /** The maximum value of the progress bar. */
+  max: PropTypes.number,
+  /** The label for the progress bar. No label for the multi-progress bar. */
+  label: PropTypes.string,
+  /** The color of the progress bar. */
+  color: PropTypes.string,
+  /** Has multiple bars. */
+  multi: PropTypes.bool,
+  /** The list of values for a multi-progress bar. */
+  values: PropTypes.array,
+  /** Sets a progress bar as striped. */
+  striped: PropTypes.bool
+}
+
+Progress.defaultProps = {
+  max: 100,
+  label: "Default"
 }
 
 export { Progress }

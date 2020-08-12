@@ -32,37 +32,6 @@ class Radio extends React.Component {
     super(props)
   }
 
-  static propTypes = {
-    /**
-     * The label text.
-     */
-    label: PropTypes.string,
-    /**
-     * Function to handle change.
-     */
-    onChange: PropTypes.func,
-    /**
-     * Value of the radio.
-     */
-    value: PropTypes.string,
-    /**
-     * Name of the group that radios belong to. REQUIRED!
-     */
-    name: PropTypes.string.isRequired,
-    /**
-     * Sets whether the checkbox is inline or not.
-     */
-    inline: PropTypes.bool,
-    /**
-     * Sets whether the checkbox is enabled or disabled.
-     */
-    disabled: PropTypes.bool
-  }
-
-  static defaultProps = {
-    label: "Default text!"
-  }
-
   render() {
     const { label, onChange, value, name, inline, disabled } = this.props
 
@@ -84,6 +53,25 @@ class Radio extends React.Component {
       </div>
     )
   }
+}
+
+Radio.propTypes = {
+  /** The label text. */
+  label: PropTypes.string,
+  /** Function to handle change. */
+  onChange: PropTypes.func,
+  /** Value of the radio. */
+  value: PropTypes.string,
+  /** Name of the group that radios belong to. REQUIRED! */
+  name: PropTypes.string.isRequired,
+  /** Sets whether the checkbox is inline or not. */
+  inline: PropTypes.bool,
+  /** Sets whether the checkbox is enabled or disabled. */
+  disabled: PropTypes.bool
+}
+
+Radio.defaultProps = {
+  label: "Default text!"
 }
 
 export { Radio }
