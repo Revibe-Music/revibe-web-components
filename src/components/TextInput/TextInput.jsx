@@ -48,12 +48,12 @@ class TextInput extends React.Component {
   }
 
   render() {
-    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName } = this.props
+    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName, className, ...props } = this.props
 
     return (
       <>
         {!form ? 
-          <InputGroup size={size} className={this.state.focused + " " + regClassName}>
+          <InputGroup size={size} className={this.state.focused + " " + regClassName + " "} {...props}>
             {prepend && 
               <InputGroupAddon addonType="prepend">
                 {prepend && (!prepend.type || prepend.type === "i") ?
@@ -81,7 +81,7 @@ class TextInput extends React.Component {
             }
           </InputGroup>
         :
-          <FormGroup className={`${formLabel ? 'has-label' : ''} ${formClassName}`}>
+          <FormGroup className={`${formLabel ? 'has-label' : ''} ${formClassName} ${className}`} {...props}>
             {formLabel && <Label>{formLabel}</Label>}
             <ReactstrapInput
               placeholder={placeholder}
@@ -117,7 +117,8 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   formClassName: "",
-  regClassName: ""
+  regClassName: "",
+  className: ""
 }
 
 export { TextInput }

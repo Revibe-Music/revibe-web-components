@@ -60,10 +60,10 @@ class InfoArea extends React.Component {
   }
   
   render() {
-    const { color, icon, title, description, iconColor, hover, append, noBlob } = this.props
+    const { color, icon, title, description, iconColor, hover, append, noBlob, ...props } = this.props
 
     return (
-      <>
+      <div {...props}>
         <div className={`info info-${hover ? "hover" : "horizontal"}`}>
           <div className={`icon icon-${iconColor}`}>
             {!noBlob && <img
@@ -79,7 +79,7 @@ class InfoArea extends React.Component {
             {append && append}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

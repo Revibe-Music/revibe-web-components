@@ -44,7 +44,7 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { labels, content, pills, pillColor, vertical, tabPlacement, textPlacement } = this.props
+    const { labels, content, pills, pillColor, vertical, tabPlacement, textPlacement, ...props } = this.props
 
     const navBar = (
       <>
@@ -73,7 +73,7 @@ class Tabs extends React.Component {
 
     if(vertical)
       return (
-        <Row>
+        <Row {...props}>
           <Col md="4" xs="12">
             <Nav tabs={!pills} pills={pills} className={`${pills ? `nav-pills-${pillColor} ` : ""}${vertical ? `flex-column ` : ""}`}>
               {navBar}

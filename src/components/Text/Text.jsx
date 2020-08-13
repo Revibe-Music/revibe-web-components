@@ -31,13 +31,13 @@ class Text extends React.Component {
   }
 
   render() {
-    const { children, display, muted, lead, color, inline, tag: Tag, className, style, font, size, weight } = this.props
+    const { children, display, muted, lead, color, inline, tag: Tag, className, style, font, size, weight, ...props } = this.props
 
     return (
       <Tag
         className={`${display ? `display-${display} ` : ""}${muted ? "text-muted " : ""}${lead ? "lead " : ""}${color ? `text-${color} ` : ""}${inline ? "w-auto d-inline-block " : ""}${className}`}
         style={{ fontFamily: font, fontSize: size, fontWeight: weight, ...style }}
-        {...this.props}
+        {...props}
       >
         {children}
       </Tag>

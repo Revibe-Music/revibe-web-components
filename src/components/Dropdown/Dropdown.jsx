@@ -33,10 +33,10 @@ class Dropdown extends React.Component {
   }
 
   render() {
-    const { caret, label, options, color, inline, direction } = this.props
+    const { caret, label, options, color, inline, direction, ...props } = this.props
 
     return (
-      <UncontrolledDropdown group={inline} direction={direction}>
+      <UncontrolledDropdown group={inline} direction={direction} {...props}>
         <DropdownToggle caret={caret} color={color} data-toggle="dropdown">{label}</DropdownToggle>
         <DropdownMenu>
           {options.map(({ label, header, disabled, divider, href, target, onClick }, index) => (
