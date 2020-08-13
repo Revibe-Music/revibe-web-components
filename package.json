@@ -1,6 +1,6 @@
 {
   "name": "@revibe-dev/revibe-component-library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A component library built for sharing components to all the Revibe websites (main site, Aritst Portal, etc.).",
   "main": "./lib/index.js",
   "browser": "lib/index.umd.js",

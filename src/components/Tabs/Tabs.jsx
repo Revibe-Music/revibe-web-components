@@ -44,12 +44,14 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { labels, content, pills, pillColor, vertical, tabPlacement, textPlacement, ...props } = this.props
+    const { labels, content, pills, pillColor, vertical, tabPlacement, textPlacement, navProps, tabContentProps, ...props } = this.props
+    const { navClassName, ...navPropsLeft } = navProps
+    const { tabClassName, ...tabProps } = tabContentProps
 
     const navBar = (
       <>
         {labels.map((label, index) => (
-          <NavItem className={`${index > 0 ? `m${vertical ? "t" : "l"}-1` : ""} ${index < labels.length - 1 ? `m${vertical ? "b" : "r"}-1` : ""}`}>
+          <NavItem className={`${index > 0 ? `m${vertical ? "t" : "l"}-1` : ""} ${index < labels.length - 1 ? `m${vertical ? "b" : "r"}-1` : ""} ${navClassName}`} {...navPropsLeft}>
             <NavLink
               className={this.state.activeTab === index ? "active" : ""}
               onClick={() => this.toggle(index)}
@@ -62,7 +64,7 @@ class Tabs extends React.Component {
     )
 
     const tabContent = (
-      <TabContent activeTab={this.state.activeTab}>
+      <TabContent activeTab={this.state.activeTab} className={tabClassName} {...tabProps}>
         {content.map((val, index) => (
           <TabPane tabId={index} className={`${textPlacement ? `text-${textPlacement}` : ""}`}>
             {val}
@@ -115,13 +117,19 @@ Tabs.propTypes = {
   /** Sets the horizontal placement of the tabs. [center, end] */
   tabPlacement: PropTypes.string,
   /** Sets the placement of text. [left, center, right] */
-  textPlacement: PropTypes.string
+  textPlacement: PropTypes.string,
+  /** Navigation bar props. */
+  navProps: PropTypes.object,
+  /** Tab content props. */
+  tabContentProps: PropTypes.object
 }
 
 Tabs.defaultProps = {
   labels: [ "tab1", "tab2" ],
   content: [ "This is content for tab 1.", "This is content for tab 2." ],
-  pillColor: "primary"
+  pillColor: "primary",
+  navProps: { className: "" },
+  tabContentProps: { className: "" }
 }
 
 export { Tabs }
