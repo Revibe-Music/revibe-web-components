@@ -75,7 +75,7 @@ class InfoArea extends React.Component {
           </div>
           <div className="description">
             <h3 className="info-title">{title}</h3>
-            {description && <p>{description}</p>}
+            {description && <p style={{ wordWrap: "break-word" }}>{description}</p>}
             {append && append}
           </div>
         </div>
