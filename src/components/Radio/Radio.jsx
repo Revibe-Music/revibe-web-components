@@ -33,24 +33,22 @@ class Radio extends React.Component {
   }
 
   render() {
-    const { label, onChange, value, name, inline, disabled } = this.props
+    const { label, onChange, value, name, inline, disabled, ...props } = this.props
 
     return (
-      <div className="content">
-        <FormGroup check inline={inline} disabled={disabled} className="form-check-radio">
-          <Label className="form-check-label">
-            <Input 
-              type="radio"
-              onChange={onChange}
-              value={value}
-              name={name}
-              disabled={disabled}
-            />
-            {label}
-            <span className="form-check-sign" />
-          </Label>
-        </FormGroup>
-      </div>
+      <FormGroup check inline={inline} disabled={disabled} className="form-check-radio" {...props}>
+        <Label className="form-check-label">
+          <Input 
+            type="radio"
+            onChange={onChange}
+            value={value}
+            name={name}
+            disabled={disabled}
+          />
+          {label}
+          <span className="form-check-sign" />
+        </Label>
+      </FormGroup>
     )
   }
 }

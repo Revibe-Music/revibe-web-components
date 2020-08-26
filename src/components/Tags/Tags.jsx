@@ -49,14 +49,14 @@ class Tags extends React.Component {
   }
 
   render() {
-    const { color, uppercase } = this.props
+    const { color, uppercase, ...props } = this.props
 
     return (
       <TagsInput
         value={this.state.tags}
         onChange={this.handleTags}
         tagProps={{ className: `react-tagsinput-tag ${color}`, style: (!uppercase ? { textTransform: "none" } : {}) }}
-        {...this.props}
+        {...props}
       />
     )
   }

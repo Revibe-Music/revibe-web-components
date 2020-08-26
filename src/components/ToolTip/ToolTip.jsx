@@ -33,10 +33,10 @@ class ToolTip extends React.Component {
   }
 
   render() {
-    const { placement, target, delay, label } = this.props
+    const { placement, target, delay, label, ...props } = this.props
 
     return (
-      <UncontrolledTooltip placement={placement} target={target} delay={delay} >
+      <UncontrolledTooltip placement={placement} target={target} delay={delay} {...props} >
         {label}
       </UncontrolledTooltip>
     )

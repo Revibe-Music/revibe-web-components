@@ -48,12 +48,12 @@ class TextInput extends React.Component {
   }
 
   render() {
-    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName } = this.props
+    const { onChange, placeholder, prepend, append, size, form, formLabel, formClassName, regClassName, className, type, rows, ...props } = this.props
 
     return (
       <>
         {!form ? 
-          <InputGroup size={size} className={this.state.focused + " " + regClassName}>
+          <InputGroup size={size} className={this.state.focused + " " + regClassName + " "} {...props}>
             {prepend && 
               <InputGroupAddon addonType="prepend">
                 {prepend && (!prepend.type || prepend.type === "i") ?
@@ -68,7 +68,8 @@ class TextInput extends React.Component {
               onChange={onChange}
               onFocus={this.onFocus}
               onBlur={this.onBlur}
-              {...this.props}
+              type={type}
+              rows={rows}
             />
             {append &&
               <InputGroupAddon addonType="append">
@@ -81,11 +82,13 @@ class TextInput extends React.Component {
             }
           </InputGroup>
         :
-          <FormGroup className={`${formLabel ? 'has-label' : ''} ${formClassName}`}>
+          <FormGroup className={`${formLabel ? 'has-label' : ''} ${formClassName} ${className}`} {...props}>
             {formLabel && <Label>{formLabel}</Label>}
             <ReactstrapInput
               placeholder={placeholder}
               onChange={onChange}
+              type={type}
+              rows={rows}
             />
           </FormGroup>
         }
@@ -112,12 +115,19 @@ TextInput.propTypes = {
   /** Sets the classes used for the form group. Useful for applying if a field is good (has-success) or bad (has-danger). */
   formClassName: PropTypes.string,
   /** Sets the class name used for the regular input groups. Useful for applying if a field is good (has-success) or bad (has-danger). */
-  regClassName: PropTypes.string
+  regClassName: PropTypes.string,
+  /** The type of text to use for the input. */
+  type: PropTypes.string,
+  /** The number of rows for a text area. */
+  rows: PropTypes.number
 }
 
 TextInput.defaultProps = {
   formClassName: "",
-  regClassName: ""
+  regClassName: "",
+  className: "",
+  type: "text",
+  rows: 1
 }
 
 export { TextInput }

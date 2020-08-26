@@ -33,10 +33,10 @@ class Card extends React.Component {
   }
 
   render() {
-    const { header, footer, children, imgSrc, width, style, color } = this.props
+    const { header, footer, children, imgSrc, width, style, color, ...props } = this.props
 
     return (
-      <RSCard style={{ width: width && width, ...style  }} color={color} {...this.props}>
+      <RSCard style={{ width: width && width, ...style  }} color={color} {...props}>
         {imgSrc && <CardImg top width="100%" src={imgSrc} alt="..." />}
         {header && 
         <CardHeader>

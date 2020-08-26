@@ -33,10 +33,10 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { label, onChange, disabled, inline } = this.props
+    const { label, onChange, disabled, inline, ...props } = this.props
 
     return (
-      <FormGroup check inline={inline} disabled={disabled}>
+      <FormGroup check inline={inline} disabled={disabled} {...props}>
         <Label check>
           <Input 
             type="checkbox"

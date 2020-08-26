@@ -46,10 +46,10 @@ class Slider extends React.Component {
   }
 
   render() {
-    const { color } = this.props
+    const { color, rangeMin, rangeMax, step, start, ...props } = this.props
 
     return (
-      <div className={`slider ${color ? `slider-${color}` : ""}`} ref="slider" />
+      <div className={`slider ${color ? `slider-${color}` : ""}`} ref="slider" {...props} />
     )
   }
 }

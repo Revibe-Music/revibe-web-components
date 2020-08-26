@@ -44,7 +44,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target, social } = this.props
+    const { icon, simple, round, children, color, size, active, disabled, onClick, link, href, target, social, className, ...props } = this.props
 
     return (
       <ReactstrapButton
@@ -53,10 +53,10 @@ class Button extends React.Component {
         active={active}
         disabled={disabled}
         onClick={onClick}
-        className={`${link ? "btn-link" : ""} ${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
+        className={`${className} ${link ? "btn-link" : ""} ${round ? "btn-round" : ""} ${simple ? "btn-simple" : ""} ${(icon || social) && !children ? "btn-icon" : ""}`}
         href={href}
         target={target}
-        {...this.props}
+        {...props}
       >
         {social && <i className={this.getIconClassBySocial(social)} />}{icon && !social && icon}{(icon || social) && children && " "}{icon && children}{!icon && !social && (children || (!children && "Default text!"))}
       </ReactstrapButton>
@@ -94,12 +94,15 @@ Button.propTypes = {
    * 
    * List: [ twitter, facebook, google, linkedin, pinterest, youtube, tumblr, github, behance, dribble, reddit ]
    */
-  social: PropTypes.string
+  social: PropTypes.string,
+  /** The classes to use. */
+  className: PropTypes.string
 }
 
 Button.defaultProps = {
   active: false,
-  disabled: false
+  disabled: false,
+  className: ""
 }
 
 export { Button }

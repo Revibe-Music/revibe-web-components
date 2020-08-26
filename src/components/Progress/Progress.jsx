@@ -33,21 +33,21 @@ class Progress extends React.Component {
   }
 
   render() {
-    const { value, max, label, color, multi, values, striped } = this.props
+    const { value, max, label, color, multi, values, striped, ...props } = this.props
 
     console.log(values)
 
     return (
       <>
       {!multi ?
-        <div className={`progress-container ${color ? `progress-${color}` : ""}`}>
+        <div className={`progress-container ${color ? `progress-${color}` : ""}`} {...props}>
           <span className="progress-badge">{label}</span>
           <ProgressBar max={max} value={value} striped={striped}>
             <span className="progress-value">{((value / max) * 100).toFixed(0)}%</span>
           </ProgressBar>
         </div>
         :
-        <ProgressBar multi={multi}>
+        <ProgressBar multi={multi} {...props}>
           {values.map((obj, index) => (
             <ProgressBar bar value={`${obj.value}`} color={obj.color ? obj.color : "secondary"} striped={striped} max={max} />
           ))}

@@ -55,7 +55,7 @@ class Select extends React.Component {
   }
 
   render() {
-    const { placeholder, color, isMulti } = this.props
+    const { placeholder, color, isMulti, ...props } = this.props
 
     return (
       <ReactSelect
@@ -66,6 +66,7 @@ class Select extends React.Component {
         isMulti={isMulti}
         onChange={this.handleChange}
         options={this.optionList}
+        {...props}
       />
     )
   }

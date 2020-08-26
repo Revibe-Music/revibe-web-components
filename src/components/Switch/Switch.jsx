@@ -41,7 +41,7 @@ class Switch extends React.Component {
   }
 
   render() {
-    const { onColor, offColor, defaultValue, onText, offText } = this.props
+    const { onColor, offColor, defaultValue, onText, offText, ...props } = this.props
 
     return (
       <ToggleSwitch
@@ -51,6 +51,7 @@ class Switch extends React.Component {
         onText={onText}
         offText={offText}
         onChange={this.handleChange}
+        {...props}
       />
     )
   }
